@@ -22,6 +22,7 @@ public:
         }
     }
     vector<vector<string>> partition(string s) {
+        ios_base::sync_with_stdio(0);
         vector<vector<string>> ans;
         vector<string> temp;
         solve(0,s,ans,temp);
