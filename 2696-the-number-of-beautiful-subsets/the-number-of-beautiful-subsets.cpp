@@ -18,7 +18,9 @@ public:
                 }
             }
             if(b) ans++;
-            fill(ex,ex+1001,0);
+            for(int j=0;j<nums.size();j++)
+                if((i>>j)&1)
+                    ex[nums[j]]=0;
         }
         return ans-1;
     }
