@@ -17,7 +17,7 @@ public:
             }
             
             for(int p=0;p<26;p++){
-                maxCnt[p]= freq[p]==i+1? min(maxCnt[p],cnt[p]):0;
+                maxCnt[p]=min(maxCnt[p],cnt[p]);
             }
         }
 
