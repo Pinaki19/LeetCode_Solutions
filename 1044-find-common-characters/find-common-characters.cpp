@@ -1,6 +1,7 @@
 class Solution {
 public:
     vector<string> commonChars(vector<string>& words) {
+        ios_base::sync_with_stdio(0);
         vector<string> ans;
         int freq[26]={0};
         int cnt[26],maxCnt[26];
