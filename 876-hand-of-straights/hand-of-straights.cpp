@@ -1,23 +1,18 @@
 class Solution {
 public:
     bool isNStraightHand(vector<int>& hand, int groupSize) {
-        map<int,int> mp;
-        set<int> s;
-        for(int i:hand) {
-            mp[i]++;
-            s.insert(i);
-        }
-        while(s.size()){
-            int val=*s.begin();
-            mp[val]--;
-            if(mp[val]==0)
-                s.erase(val);
+        ios_base::sync_with_stdio(0);
+        multiset<int> ms;
+        for(int i:hand) 
+            ms.insert(i);
+        
+        while(ms.size()){
+            int val=*ms.begin();
+            ms.erase(ms.find(val));
 
             for(int i=1;i<groupSize;i++){
-                if(s.find(val+i)==s.end()) return false;
-                int t=val+i;
-                mp[t]--;
-                if(mp[t]==0) s.erase(t);
+                if(ms.find(val+i)==ms.end()) return false;
+                ms.erase(ms.find(val+i));
             }
         }
         return 1;
