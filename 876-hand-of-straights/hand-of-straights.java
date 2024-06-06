@@ -6,8 +6,7 @@ class Solution {
         }
 
         while(mp.size()>0){
-            Set s=mp.keySet();
-            Iterator<Integer> it=s.iterator();
+            Iterator<Integer> it=mp.keySet().iterator();
             int prev=-1;
             int n=groupSize;
             while(n>0 && it.hasNext()){
