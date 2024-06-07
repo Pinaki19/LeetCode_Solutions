@@ -1,10 +1,6 @@
 class TrieNode{
-    TrieNode[] child;
+    TrieNode[] child=new TrieNode[26];
     boolean isEnd;
-
-    TrieNode(){
-        child= new TrieNode[26];
-    }
 }
 
 class Solution {
