@@ -20,6 +20,7 @@ public:
         return w;
     }
     string replaceWords(vector<string>& dict, string sentence) {
+        ios_base::sync_with_stdio(0);
         TrieNode* head=new TrieNode();
         TrieNode* temp;
         for(string s:dict){
