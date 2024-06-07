@@ -4,8 +4,6 @@ class TrieNode{
 
     TrieNode(){
         child= new TrieNode[26];
-        Arrays.fill(child,null);
-        isEnd=false;
     }
 }
 
