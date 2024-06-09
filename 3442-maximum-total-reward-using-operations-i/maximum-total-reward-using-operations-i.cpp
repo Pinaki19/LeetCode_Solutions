@@ -12,7 +12,7 @@ public:
         ios_base::sync_with_stdio(0);
         int n=0;
         sort(reward.begin(),reward.end());
-        map<int,int> dp;
+        unordered_map<int,int> dp;
         int ans= getMax(0,0,reward,dp);
         return ans;
     }
