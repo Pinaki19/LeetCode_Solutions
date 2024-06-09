@@ -9,6 +9,7 @@ public:
         return dp[cur]=max(rew[i]+getMax(pos,iftake,rew,dp),getMax(i+1,cur,rew,dp));
     }
     int maxTotalReward(vector<int>& reward) {
+        ios_base::sync_with_stdio(0);
         int n=0;
         sort(reward.begin(),reward.end());
         map<int,int> dp;
