@@ -1,6 +1,7 @@
 class Solution {
 public:
     vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2) {
+        ios_base::sync_with_stdio(0);
         int time=1;
         unordered_map<int,int> mp;
         for(int i:arr2) mp[i]=time++;
