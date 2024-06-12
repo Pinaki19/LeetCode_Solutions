@@ -1,23 +1,18 @@
 class Solution {
 public:
-    int solve(vector<int>& nums, int sum, int i,vector<vector<int>> &dp) {
-        if (i >= nums.size()) {
-            return sum;
-        }
-        if (dp[i][sum] != -1) {
-            return dp[i][sum];
-        }
-        int ex = solve(nums, sum, i + 1,dp);
-        int in = 0;
-        if (nums[i] > sum) {
-            in = solve(nums, sum + nums[i], i + 1,dp);
-        }
-        return dp[i][sum] = max(in, ex);
+    int getMax(int i,int cur,auto& rew,auto& dp){
+        if(i>=rew.size()||cur>rew.back()) return 0;
+        if(dp.find(cur)!=dp.end()) return dp[cur];
+        if(rew[i]<=cur) return dp[cur]=getMax(i+1,cur,rew,dp);
+        int iftake=cur+rew[i];
+        int pos=lower_bound(rew.begin()+i,rew.end(),iftake)-rew.begin();
+        return dp[cur]=max(rew[i]+getMax(pos,iftake,rew,dp),getMax(i+1,cur,rew,dp));
     }
-
-    int maxTotalReward(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
-          vector<vector<int>>dp(nums.size(),vector<int>(4001,-1));
-        return solve(nums, 0, 0,dp);
+    int maxTotalReward(vector<int>& reward) {
+        int n=0;
+        sort(reward.begin(),reward.end());
+        map<int,int> dp;
+        int ans= getMax(0,0,reward,dp);
+        return ans;
     }
 };
