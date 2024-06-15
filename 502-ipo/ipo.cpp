@@ -1,6 +1,7 @@
 class Solution {
 public:
     int findMaximizedCapital(int k, int w, vector<int>& profits, vector<int>& capital) {
+        ios_base::sync_with_stdio(0);
         priority_queue<int> pq;
         vector<pair<int,int>> vp;
         for(int i=0;i<profits.size();i++)
