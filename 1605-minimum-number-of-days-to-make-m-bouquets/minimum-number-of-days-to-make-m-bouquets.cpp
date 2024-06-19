@@ -9,7 +9,7 @@ public:
             int tot=0;
             for(int i=0;i<bloom.size();){
                 if(bloom[i]<=day){
-                    int t=k,j=i;
+                    int t=k;
                     while(t && i<bloom.size() && bloom[i]<=day) i++,t--;
                     if(t==0) tot++;
                 }else i++;
