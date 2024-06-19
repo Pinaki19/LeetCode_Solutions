@@ -1,6 +1,7 @@
 class Solution {
 public:
     int minDays(vector<int>& bloom, int m, int k) {
+        ios_base::sync_with_stdio(0);
         int n=bloom.size();
         if(n<m*1ll*k) return -1;
         int ans=1e9;
