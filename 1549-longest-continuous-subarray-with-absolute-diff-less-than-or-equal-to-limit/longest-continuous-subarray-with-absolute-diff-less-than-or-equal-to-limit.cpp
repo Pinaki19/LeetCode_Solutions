@@ -8,6 +8,7 @@ public:
         cout<<endl;
     }
     int longestSubarray(vector<int>& nums, int limit) {
+        ios_base::sync_with_stdio(0);
         int l=0,r=0;
         int ans=1;
         int n=nums.size();
