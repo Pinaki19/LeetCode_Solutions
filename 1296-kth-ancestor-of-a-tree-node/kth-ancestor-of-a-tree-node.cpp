@@ -2,10 +2,8 @@ class TreeAncestor {
     int lim;
     vector<vector<int>> ancestor;
 public:
-    TreeAncestor(int n, vector<int>& parent) {
+    TreeAncestor(int n, vector<int>& parent):lim(log2(n)+1),ancestor(vector<vector<int>> (n,vector<int> (lim,-1))) {
         ios_base::sync_with_stdio(0);
-        lim=log2(n)+1;
-        ancestor=vector<vector<int>> (n,vector<int> (lim,-1));
         for(int i=0;i<n;i++)
             ancestor[i][0]=parent[i];
 
