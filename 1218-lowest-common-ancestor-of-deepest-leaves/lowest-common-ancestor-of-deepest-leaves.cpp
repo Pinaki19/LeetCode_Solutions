@@ -57,6 +57,7 @@ public:
         return ancestors[node1->val][0];
     }
     TreeNode* lcaDeepestLeaves(TreeNode* root) {
+        ios_base::sync_with_stdio(0);
         TreeNode* v1=root,*v2=root;
         int d1=0,d2=0;
         traverse(root,nullptr,0,&v1,&v2,d1,d2);
