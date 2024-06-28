@@ -2,6 +2,7 @@ typedef long long ll;
 class Solution {
 public:
     long long maximumImportance(int n, vector<vector<int>>& roads) {
+        ios_base::sync_with_stdio(0);
         ll ans=0;
         int deg[n];
         fill(deg,deg+n,0);
