@@ -28,6 +28,7 @@ public:
         reverse(ans.begin(),ans.end());
     }
     string shortestCommonSupersequence(string str1, string str2) {
+        ios_base::sync_with_stdio(0);
         string lcs="",ans="";
         getLcs(str1,str2,lcs);
         int i=0,j=0;
