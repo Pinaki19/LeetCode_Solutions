@@ -3,7 +3,6 @@ public:
     vector<vector<int>> getAncestors(int n, vector<vector<int>>& edges) {
         ios_base::sync_with_stdio(0);
         vector<vector<int>> child(n),ans(n);
-        vector<set<int>> temp(n);
         int indeg[n];
         deque<int> leafs;
         fill(indeg,indeg+n,0);
@@ -20,14 +19,18 @@ public:
             int val=leafs.front();
             leafs.pop_front();
             for(int x:child[val]){
-                for(int z:temp[val])
-                    temp[x].insert(z);
-                temp[x].insert(val);indeg[x]--;
+                for(int z:ans[val]){
+                    auto pos=lower_bound(ans[x].begin(),ans[x].end(),z);
+                    if(pos==ans[x].end()) ans[x].push_back(z);
+                    else if(*pos!=z) ans[x].insert(pos,z);
+                }
+                auto pos=lower_bound(ans[x].begin(),ans[x].end(),val);
+                if(pos==ans[x].end()) ans[x].push_back(val);
+                else if(*pos!=val) ans[x].insert(pos,val);
+                indeg[x]--;
                 if(indeg[x]==0) leafs.push_back(x);
             }
         }
-        for(int i=0;i<n;i++)
-            ans[i]=vector<int> (temp[i].begin(),temp[i].end());
         return ans;
     }
 };
