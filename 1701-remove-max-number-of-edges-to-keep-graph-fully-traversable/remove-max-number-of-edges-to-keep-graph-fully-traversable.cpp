@@ -18,6 +18,7 @@ public:
         return true;
     }
     int maxNumEdgesToRemove(int n, vector<vector<int>>& edges) {
+        ios_base::sync_with_stdio(0);
         sort(edges.begin(),edges.end(),[](auto& v1,auto& v2){
             if (v1[0]==v2[0]) return v1[1]<v2[1];
             return v1[0]>v2[0];
