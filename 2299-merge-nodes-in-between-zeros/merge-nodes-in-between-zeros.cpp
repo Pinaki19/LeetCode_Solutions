@@ -14,7 +14,7 @@ public:
         ios_base::sync_with_stdio(0);
         if(!head) return nullptr;
         if(head->val!=0||head->val==0 && !head->next){
-           return head->next=mergeNodes(head->next);
+          return head->next=mergeNodes(head->next);
         }else{
             ListNode* temp=head->next;
             while(temp && temp->val!=0){
@@ -23,8 +23,7 @@ public:
             }
             if(temp && temp->val==0)
                 head->next=mergeNodes(temp);
-            return head;
+                return head;
         }
-        return head;
     }
 };
