@@ -16,17 +16,13 @@ public:
         if(head->val!=0||head->val==0 && !head->next){
            return head->next=mergeNodes(head->next);
         }else{
-            int val=0;
             ListNode* temp=head->next;
-
             while(temp && temp->val!=0){
-                val+=temp->val;
+                head->val+=temp->val;
                 temp=temp->next;
             }
-            if(temp && temp->val==0){
-                head->val=val;
+            if(temp && temp->val==0)
                 head->next=mergeNodes(temp);
-            }
             return head;
         }
         return head;
