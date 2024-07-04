@@ -11,6 +11,7 @@
 class Solution {
 public:
     ListNode* mergeNodes(ListNode* head) {
+        ios_base::sync_with_stdio(0);
         if(!head) return nullptr;
         if(head->val!=0||head->val==0 && !head->next){
            return head->next=mergeNodes(head->next);
