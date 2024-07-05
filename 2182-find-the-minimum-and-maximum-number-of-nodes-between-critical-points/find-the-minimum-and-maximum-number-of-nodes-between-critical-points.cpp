@@ -11,9 +11,9 @@
 class Solution {
 public:
     vector<int> nodesBetweenCriticalPoints(ListNode* head) {
+        ios_base::sync_with_stdio(0);
         int min_dist=INT_MAX,max_dist=0;
-        int prev=head->val;
-        int next;
+        int prev=head->val,next;
         int prev_critical=-1;
         head=head->next;
         int n=1;
