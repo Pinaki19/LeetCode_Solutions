@@ -1,6 +1,7 @@
 class Solution {
 public:
     int maximumMinutes(vector<vector<int>>& grid) {
+        ios_base::sync_with_stdio(0);
         queue<pair<int,int>> q;
         int m=grid.size(),n=grid[0].size();
         vector<vector<int>> dist_fire(m,vector<int> (n,(int)1e9+100000));
@@ -45,20 +46,6 @@ public:
 
         if(dist_fire[m-1][n-1]<dist_player[m-1][n-1]) return -1;
 
-        // for(int i=0;i<m;i++){
-        //     for(int j=0;j<n;j++){
-        //         cout<<dist_fire[i][j]<<"  ";
-        //     }
-        //     cout<<endl;
-        // }
-        // cout<<endl;
-        // for(int i=0;i<m;i++){
-        //     for(int j=0;j<n;j++){
-        //         cout<<dist_player[i][j]<<"  ";
-        //     }
-        //     cout<<endl;
-        // }
-        
         auto check=[&](int day)->bool{
             q=queue<pair<int,int>> ();
             q.push({0,0});
