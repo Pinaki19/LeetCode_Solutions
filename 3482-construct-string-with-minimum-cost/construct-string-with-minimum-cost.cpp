@@ -22,48 +22,6 @@ public:
         }
         return head;
     }
-
-    void insert(std::string& word){
-        TrieNode* temp=this;
-        for (char c : word){
-            int z = c - 'a';
-            if (!temp->child[z])
-                temp->child[z] = new TrieNode();
-            temp = temp->child[z];
-        }
-        temp->isend = true;
-    }
-
-    int match_long(std::string& s,int i=0){
-        TrieNode *temp = this;
-        int ans = i - 1;
-        for (int j = i; j < s.size(); j++)
-        {
-            int z = s[j] - 'a';
-            if (!temp->child[z])
-                break;
-            if (temp->child[z]->isend)
-                ans=j;
-            temp = temp->child[z];
-        }
-        return ans + 1;
-    }
-    int match_short(std::string& s,int i=0){
-        TrieNode *temp = this;
-        int ans = i - 1;
-        for (int j = i; j < s.size(); j++){
-            int z = s[j] - 'a';
-            if (!temp->child[z]) return i;
-            if (temp->child[z]->isend)
-                return j+1;
-            temp = temp->child[z];
-        }
-        return ans + 1;
-    }
-    bool match(std::string& s,int i=0){
-        int len=s.size();
-        return this->match_long(s,i)>=len;
-    }
 };
 
 class Solution {
