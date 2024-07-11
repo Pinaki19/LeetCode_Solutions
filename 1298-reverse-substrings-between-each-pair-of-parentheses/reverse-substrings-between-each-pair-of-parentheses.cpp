@@ -1,20 +1,20 @@
 class Solution {
 public:
     static string reverseParentheses(string& s) {
-        string stack, rev;
+        string ans, rev;
         for(char c: s){
-            if (c!=')') stack.push_back(c);
+            if (c!=')') ans.push_back(c);
             else{
                 rev="";
-                for(char r=stack.back(); r!='('; r=stack.back()){
+                for(char r=ans.back(); r!='('; r=ans.back()){
                     rev+=r;
-                    stack.pop_back();
+                    ans.pop_back();
                 }
-                stack.pop_back();
-                stack+=rev;
+                ans.pop_back();
+                ans+=rev;
             }
         }
-        return stack;
+        return ans;
     }
 };
 
