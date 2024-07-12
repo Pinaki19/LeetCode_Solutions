@@ -1,7 +1,6 @@
 class Solution {
 public:
     int maximumGain(string s, int x, int y) {
-        ios_base::sync_with_stdio(0);
         string first="ab",second="ba";
         if(x<y){
             swap(first,second);
