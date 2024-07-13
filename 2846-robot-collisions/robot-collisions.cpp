@@ -1,6 +1,7 @@
 class Solution {
 public:
     vector<int> survivedRobotsHealths(vector<int>& positions, vector<int>& healths, string directions) {
+        ios_base::sync_with_stdio(0);
         vector<pair<int,int>> pos_ind;
         int n=positions.size();
         for(int i=0;i<n;i++)
