@@ -30,9 +30,6 @@ public:
                 vis[i]=true;
             }
         }
-
-        //0-->2-->1
-
         function<void(int,int)> solve=[&](int i,int parent)->void{
             ans[i]=ans[parent]-num_child[i]+(n-2-num_child[i]);
             for(int j:adjl[i]){
@@ -40,10 +37,8 @@ public:
                 solve(j,i);
             }
         };
-       
-        for(int i:adjl[0]){
+        for(int i:adjl[0])
             solve(i,0);
-        }
         return ans;
     }
 };
