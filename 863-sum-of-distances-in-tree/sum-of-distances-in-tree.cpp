@@ -1,6 +1,7 @@
 class Solution {
 public:
     vector<int> sumOfDistancesInTree(int n, vector<vector<int>>& edges) {
+        cin.tie(0)->sync_with_stdio(0);
         vector<int> num_child(n,0),ans(n,0);
         vector<vector<int>> adjl(n);
         for(auto edg:edges){
