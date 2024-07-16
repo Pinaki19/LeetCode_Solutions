@@ -11,12 +11,11 @@
  */
 class Solution {
 public:
-    string getDirections(TreeNode* root, int startValue, int destValue) {
-        string to_src="",to_dst="";
-        function<void(TreeNode*)> solve=[&,&x=startValue,&y=destValue](TreeNode* root)->void{
-            if(!root||x<0) return;
-            solve(root->left);
-            solve(root->right);
+    string to_src="",to_dst="";
+    void solve(TreeNode* root,int& x,int &y){
+        if(!root||x<0) return;
+            solve(root->left,x,y);
+            solve(root->right,x,y);
             if(root->left && root->left->val==x || root->right && root->right->val==x){
                 to_src+='U';
                 x=root->val;
@@ -34,8 +33,10 @@ public:
                 y=-1;
                 return;
             }   
-        };
-        solve(root);
+    }
+    string getDirections(TreeNode* root, int startValue, int destValue) {
+        ios_base::sync_with_stdio(0);
+        solve(root,startValue,destValue);
         reverse(to_dst.begin(),to_dst.end());
         return to_src+to_dst;
     }
