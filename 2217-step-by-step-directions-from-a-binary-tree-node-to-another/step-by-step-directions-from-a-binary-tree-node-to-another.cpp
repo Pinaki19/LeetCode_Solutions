@@ -12,7 +12,6 @@
 class Solution {
 public:
     string getDirections(TreeNode* root, int startValue, int destValue) {
-        ios_base::sync_with_stdio(0);
         string to_src="",to_dst="";
         function<void(TreeNode*)> solve=[&,&x=startValue,&y=destValue](TreeNode* root)->void{
             if(!root||x<0) return;
@@ -34,8 +33,7 @@ public:
                 x=-1;
                 y=-1;
                 return;
-            }
-                
+            }   
         };
         solve(root);
         reverse(to_dst.begin(),to_dst.end());
