@@ -15,7 +15,7 @@ public:
         ios_base::sync_with_stdio(0);
         string to_src="",to_dst="";
         function<void(TreeNode*)> solve=[&,&x=startValue,&y=destValue](TreeNode* root)->void{
-            if(!root) return;
+            if(!root||x<0) return;
             solve(root->left);
             solve(root->right);
             if(root->left && root->left->val==x || root->right && root->right->val==x){
