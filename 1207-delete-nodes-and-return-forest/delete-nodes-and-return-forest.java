@@ -14,29 +14,29 @@
  * }
  */
 class Solution {
-    public boolean solve(List<TreeNode> ans,TreeNode root,Set<Integer> del,int parent){
-        if(root==null) return false;
-        boolean exist_val=false;
-        boolean exist_parent=false;
-        if(del.contains(root.val))
-            exist_val=true;
-        if(del.contains(parent))
-            exist_parent=true;
-        boolean res_left=solve(ans,root.left,del,root.val);
-        boolean res_right=solve(ans,root.right,del,root.val);
-        if(res_left) root.left=null;
-        if(res_right) root.right=null;
-        if(!exist_val & exist_parent)
-            ans.add(root);
-        return exist_val;
+    public TreeNode solve(List<TreeNode> ans,TreeNode root,Set<Integer> del){
+        if(root==null) return null;
+        root.left=solve(ans,root.left,del);
+        root.right=solve(ans,root.right,del);
+        boolean contains=del.contains(root.val);
+        if(root.left!=null && contains){
+            ans.add(root.left);
+            root.left=null;
+        }
+        if(root.right!=null && contains){
+            ans.add(root.right);
+            root.right=null;
+        }
+        return contains? null:root;
     }
     public List<TreeNode> delNodes(TreeNode root, int[] to_delete) {
         List<TreeNode> ans=new ArrayList<>();
         Set<Integer> del=new HashSet<Integer>();
         for(int i:to_delete)
             del.add(i);
-        solve(ans,root,del,to_delete[0]);
-    
+        root=solve(ans,root,del);
+        if(root!=null)
+            ans.add(root);
         return ans;
     }
 }
