@@ -34,12 +34,10 @@ class Solution {
                 if(t2[0]+dist<=distance)
                     ans+=num*t2[1];
             }
+            if(dist+1<=distance)
+                current.add(new int[]{dist+1,t1[1]});
         }
-        for(int [] t:left_ans){
-            if(t[0]+1<=distance){
-                current.add(new int[]{t[0]+1,t[1]});
-            }
-        }
+       
         for(int [] t:right_ans){
             if(t[0]+1<=distance){
                 current.add(new int[]{t[0]+1,t[1]});
