@@ -1,7 +1,6 @@
 class Trie{
     Trie[] child=new Trie[26];
     boolean isEnd=false;
-    boolean matched=false;
     Trie(){
         Arrays.fill(child,null);
     }
@@ -40,7 +39,6 @@ class Solution {
         if(root.isEnd){
             if(ans.contains(cur)==false)
                  ans.add(cur);
-            
         }
            
         for(int[] loc:locations){
