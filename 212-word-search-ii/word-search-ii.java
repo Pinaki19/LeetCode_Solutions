@@ -37,8 +37,12 @@ class Solution {
         List<int[]> locations=getAllLocations(c,start,prevx,prevy,board);
         if(locations.size()==0) return;
         cur+=c;
-        if(root.isEnd)
-            ans.add(cur);
+        if(root.isEnd){
+            if(ans.contains(cur)==false)
+                 ans.add(cur);
+            
+        }
+           
         for(int[] loc:locations){
             visited[loc[0]][loc[1]]=true;
             for(int i=0;i<26;i++){
