@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<int> sortItems(int n, int m, vector<int>& group, vector<vector<int>>& beforeItems) {
-
+        ios_base::sync_with_stdio(0);
         for(int i=0;i<n;i++)
             if(group[i]==-1)
                 group[i]=m++;
@@ -24,12 +24,6 @@ public:
             }
             group_items[group[i]].insert(i);
         }
-        // for(int i=0;i<m;i++){
-        //     cout<<i<<": "<<group_indeg[i]<<" --> ";
-        //     for(int p:group_items[i])
-        //         cout<<p<<"  ";
-        //     cout<<endl;
-        // }
 
         queue<int> q;
         for(int i=0;i<m;i++){
