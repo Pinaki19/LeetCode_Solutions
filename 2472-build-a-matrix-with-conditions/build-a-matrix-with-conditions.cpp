@@ -47,11 +47,9 @@ public:
         if(r.size() !=k || c.size() !=k) return {};
         vector<vector<int>> ans(k,vector<int>(k,0));
         int i=0;
-        while(i<k){
-            int val=r[i];
+        for(int val:r){
             int ind=c[val];
-            ans[i][ind]=val+1;
-            i++;
+            ans[i++][ind]=val+1;
         }
         return ans;
     }
