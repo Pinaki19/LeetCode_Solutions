@@ -1,6 +1,7 @@
 class Solution {
 public:
     int minimumDifference(vector<int>& nums, int k) {
+        ios_base::sync_with_stdio(0);
         int n=nums.size();
         vector<array<int,32>> freq(n);
         for(int k=0;k<n;k++){
