@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<int> sortJumbled(vector<int>& mapping, vector<int>& nums) {
-        //ios_base::sync_with_stdio(0);
+        ios_base::sync_with_stdio(0);
         sort(nums.begin(),nums.end(),[&mapping](int i,int j){
             if(i==j) return false;
             string is=to_string(i);
