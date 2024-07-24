@@ -6,15 +6,16 @@ public:
             if(i==j) return false;
             string is=to_string(i);
             string js=to_string(j);
-            while(is.size() && mapping[is[0]-'0']==0)
-                is.erase(is.begin());
-            while(js.size() && mapping[js[0]-'0']==0)
-                js.erase(js.begin());
+            int p=0,q=0;
+            while(p<is.size() && mapping[is[p]-'0']==0)
+                p++;
+            while(q<js.size() && mapping[js[q]-'0']==0)
+                q++;
             //cout<<is<<"  "<<js<<endl;
-            if(is.size()<js.size()) return true;
-            if(js.size()<is.size()) return false;
-            for(int i=0;i<is.size();i++){
-                int k1=is[i]-'0',k2=js[i]-'0';
+            if(is.size()-p<js.size()-q) return true;
+            if(js.size()-q<is.size()-p) return false;
+            for(;p<is.size() && q<js.size() ;p++,q++){
+                int k1=is[p]-'0',k2=js[q]-'0';
                 if(mapping[k1]==mapping[k2]) continue;
                 if(mapping[k1]<mapping[k2])
                     return true;
