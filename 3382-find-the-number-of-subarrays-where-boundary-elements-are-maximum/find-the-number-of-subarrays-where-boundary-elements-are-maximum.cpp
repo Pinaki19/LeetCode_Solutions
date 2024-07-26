@@ -5,7 +5,7 @@ public:
         int l=0,r=0;
         int n=nums.size();
         stack<int> st;
-        map<int,int> mp;
+        unordered_map<int,int> mp;
         ll ans=0;
         while(r<n){
             ans++;
