@@ -1,6 +1,7 @@
 class Solution {
 public:
     int findTheCity(int n, vector<vector<int>>& edges, int th) {
+        ios_base::sync_with_stdio(0);
         const int INF=(int) 1e5;
         vector<vector<int>> dist(n,vector<int> (n,INF));
         for(auto e:edges){
@@ -17,12 +18,7 @@ public:
                 }
             }
         }
-        // for(int i=0;i<n;i++){
-        //     for(int j=0;j<n;j++){
-        //         cout<<(dist[i][j]==INF? -1:dist[i][j])<<"  ";
-        //     }
-        //     cout<<endl;
-        // }
+       
         int ans=0,curMin=INT_MAX;
         for(int i=0;i<n;i++){
             int cnt=0;
