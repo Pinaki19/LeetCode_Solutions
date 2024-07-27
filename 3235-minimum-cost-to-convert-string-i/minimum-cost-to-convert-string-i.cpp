@@ -2,6 +2,7 @@ class Solution {
 public:
     using ll=long long;
     long long minimumCost(string source, string target, vector<char>& original, vector<char>& changed, vector<int>& cost) {
+        ios_base::sync_with_stdio(0);
         const int INF=(int)1e7;
         vector<vector<int>> costs(26,vector<int> (26,INF));
         for(int i=0;i<cost.size();i++){
