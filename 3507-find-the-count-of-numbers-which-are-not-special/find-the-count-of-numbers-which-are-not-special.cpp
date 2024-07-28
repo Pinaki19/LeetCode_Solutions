@@ -19,7 +19,7 @@ public:
         return ans;
     }
     static constexpr size_t v=binarySearchSqrt()+5000;
-    static const int lim= v>=(int)1e5? 1e5:v;
+    static const int lim= v>=(int)1e5? 1e5+1000: v<10000? 10000:v;
     bitset<lim> bs;  
     using ll = long long;
     vector<int> primes;
@@ -59,9 +59,9 @@ public:
         return 1;
     }
 
-     unordered_map<ll, int> primeDivisors(ll v) {
-        unordered_map<ll, int> mp;
-        for (ll p : primes) {
+     unordered_map<int, int> primeDivisors(ll v) {
+        unordered_map<int, int> mp;
+        for (int p : primes) {
             if (p * p > v) break;
             int c = 0;
             while (v % p == 0) {
@@ -85,7 +85,6 @@ public:
         return ans;
     }
 };
-
 
 class Solution {
 public:
