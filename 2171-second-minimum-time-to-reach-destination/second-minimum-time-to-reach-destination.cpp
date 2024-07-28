@@ -1,18 +1,6 @@
 class Solution {
 public:
     using int2 = pair<int, int>;
-
-    inline static int wtime(int step, int time, int change) {
-        int ans=0;
-        for(int i=0; i < step; i++) {
-            int gr=ans/change;
-            if (gr&1)  // If it's a red light
-                ans=(gr+ 1)*change;
-            ans+=time;
-        }
-        return ans;
-    }
-
     static int secondMinimum(int n, vector<vector<int>>& edges, int time, int change) {
         vector<vector<int>> adj(n + 1);
         for (auto& e : edges) {
@@ -22,7 +10,7 @@ public:
         }
 
         vector<int> dist(n+1, INT_MAX), dist2(n+1, INT_MAX);
-        queue<int2> q;  // {node, distance}
+        queue<int2> q;
         q.emplace(1, 0);
         dist[1]=0;
 
@@ -45,17 +33,13 @@ public:
 
         int steps=dist2[n];
         if (steps == INT_MAX) return -1;
-        return wtime(steps, time, change);
+        int ans=0;
+        for(int i=0; i < steps; i++) {
+            int gr=ans/change;
+            if (gr&1)  
+                ans=(gr+ 1)*change;
+            ans+=time;
+        }
+        return ans;
     }
 };
-
-
-
-
-
-auto init = []() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
-    return 'c';
-}();
