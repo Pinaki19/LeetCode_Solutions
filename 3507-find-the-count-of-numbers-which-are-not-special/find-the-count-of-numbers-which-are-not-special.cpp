@@ -1,3 +1,6 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 
 template<const int n>
 class Sieve {
@@ -15,7 +18,7 @@ public:
         }
         return ans;
     }
-    static constexpr size_t v=binarySearchSqrt();
+    static constexpr size_t v=binarySearchSqrt()+5000;
     static const int lim= v>=(int)1e5? 1e5:v;
     bitset<lim> bs;  
     using ll = long long;
@@ -83,12 +86,13 @@ public:
     }
 };
 
+
 class Solution {
 public:
     Sieve<(int)1e9> s;
     vector<int> primes;
     Solution(){
-        primes=s.getPrimes();
+        primes=s.primes;
     }
     int nonSpecialCount(int l, int r) {
         int cnt=0;
