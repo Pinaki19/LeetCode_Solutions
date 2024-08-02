@@ -2,6 +2,8 @@ class Solution {
 public:
     int minSwaps(vector<int>& nums) {
         //0,1,1,1,0,0,1,1,0 || 0,1,1,1,0,0,1,1,0
+
+        ios_base::sync_with_stdio(0);
         int n=nums.size();
         vector<int> temp_nums(nums.begin(),nums.end());
         int cnt=0;
@@ -20,7 +22,6 @@ public:
             ans=min(ans,cnt-c);
             r++;
         }
-
         return ans;
     }
 };
