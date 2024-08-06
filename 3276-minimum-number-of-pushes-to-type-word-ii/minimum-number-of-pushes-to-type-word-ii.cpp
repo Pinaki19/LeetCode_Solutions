@@ -1,6 +1,7 @@
 class Solution {
 public:
     int minimumPushes(string word) {
+        int ans=0;
         int freq[26]={0};
         for(char c:word){
             freq[c-'a']++;
@@ -10,19 +11,17 @@ public:
                 return a<b;
             return freq[a-'a']>freq[b-'a'];
         };
-        int cur=1;
-        int ans=0;
-        map<int,int,decltype(x)> mp(x);
+        sort(word.begin(),word.end(),x);
+        char prev='1';
+        int cur=7;
         for(char c:word){
-            mp[c]++;
+            if(c!=prev){
+                prev=c;
+                cur++;
+            }
+            ans+=cur/8;
         }
-        int cnt=7;
-        for(auto [k,v]:mp){
-            cnt++;
-            cur=cnt/8;
-            ans+=v*cur;
-        }
-
+        
         return ans;
     }
 };
