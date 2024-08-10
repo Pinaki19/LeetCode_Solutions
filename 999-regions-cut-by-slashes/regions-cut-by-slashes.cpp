@@ -5,6 +5,7 @@ public:
         int n=grid.size();
         vector<vector<array<int,3>>> board(n,vector<array<int,3>>(n,array<int,3> {0,0,0}));
         
+        ios_base::sync_with_stdio(0);
         auto translate_dir=[](char c)->pair<int,int>{
             if(c=='u')
                 return {-1,0};
@@ -88,14 +89,6 @@ public:
                 }
             }
         }
-
-        for(auto& v:board){
-            for(auto t:v){
-                cout<<t[0]<<":"<<t[1]<<":"<<t[2]<<" ";
-            }
-            cout<<endl;
-        }
-
         return ans;
     }
 };
