@@ -5,6 +5,8 @@ public:
         int n=grid[0].size();
         bool checked=false;
 
+        ios_base::sync_with_stdio(0);
+
         vector<pair<int,int>> dirs={{0,1},{0,-1},{1,0},{-1,0}};
 
         auto is_valid=[&](int i,int j)->bool{
