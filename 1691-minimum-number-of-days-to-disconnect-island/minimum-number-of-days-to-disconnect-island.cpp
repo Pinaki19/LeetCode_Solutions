@@ -33,16 +33,19 @@ public:
         };
 
         auto flood=[&](int i,int j)->int{
-            vector<vector<int>> g=grid;
+            vector<vector<int>> g;
+            bool found=false;
             for(auto [dx,dy]:dirs){
                 int nx=i+dx,ny=j+dy;
                 if(is_valid(nx,ny) && grid[nx][ny]==1){
+                    found=true;
                     grid[i][j]=0;
                     g=fill(nx,ny);
                     grid[i][j]=1;
                     break;
                 }
             }
+            if(!found) return 1;
             for(auto [dx,dy]:dirs){
                 int nx=i+dx,ny=j+dy;
                 if(is_valid(nx,ny) && g[nx][ny]==1){
@@ -52,15 +55,13 @@ public:
             return 2;
         };
 
-        auto check=[m,n](vector<vector<int>>& grid)->int{
-            int c=0;
+        auto check=[m,n](vector<vector<int>>& grid)->bool{
             for(int i=0;i<m;i++){
                 for(int j=0;j<n;j++){
-                    if(grid[i][j]==1) return 0;
-                    if(grid[i][j]) c++;
+                    if(grid[i][j]==1) return true;
                 }
             }
-            return c;
+            return false;
         };
 
         for(int i=0;i<m;i++){
@@ -69,8 +70,7 @@ public:
                     if(!checked){
                         checked=true;
                         auto g=fill(i,j);
-                        int t=check(g);
-                        if(t<2) return t;
+                        if(check(g)) return 0;
                     }
 
                     if(flood(i,j)==1) return 1;
