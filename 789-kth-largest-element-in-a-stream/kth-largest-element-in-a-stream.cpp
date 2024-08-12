@@ -2,20 +2,19 @@ class KthLargest {
 private:
     int k;
 public:
-    function<bool(int,int)> comp=[](int x,int y){
-        if(x==y) return false;
-        return x>y;
-    };
-    multiset<int,decltype(comp)> s;
-    KthLargest(int k, vector<int>& nums):s(comp) {
+    priority_queue<int,vector<int>,greater<int>> pq;
+    KthLargest(int k, vector<int>& nums) {
         this->k=k;
-        for(int i:nums)
-            s.insert(i);
+        for(int i=0;i<nums.size();i++){
+            pq.push(nums[i]);
+            if(pq.size()>k) pq.pop();
+        }
     }
     
     int add(int val) {
-        s.insert(val);
-        return *(next(s.begin(),k-1));
+        pq.push(val);
+        if(pq.size()>k) pq.pop();
+        return pq.top();
     }
 };
 
