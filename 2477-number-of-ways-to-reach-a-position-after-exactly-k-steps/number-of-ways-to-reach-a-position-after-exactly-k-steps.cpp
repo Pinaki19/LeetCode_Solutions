@@ -5,17 +5,16 @@ public:
         if(k<0) return 0;
         int diff=abs(end-i);
         if(diff>k||((k-diff)&1)) return 0;
-        if(dp.find({i,k})!=dp.end())
-            return dp[{i,k}];
+        if(dp[i+1000][k]>=0) return dp[i+1000][k];
         long ans=i==end && k==0;
         ans+=solve(i+1,k-1,end,dp);
         ans%=MOD;
         ans+=solve(i-1,k-1,end,dp);
         ans%=MOD;
-        return dp[{i,k}]=ans;
+        return dp[i+1000][k]=ans;
     }
     int numberOfWays(int startPos, int endPos, int k) {
-        map<array<int,2>,int> dp;
+        vector<vector<int>> dp(4000,vector<int>(1001,-1));
         return solve(startPos,k,endPos,dp);
     }
 };
