@@ -1,5 +1,8 @@
 class Solution {
 public:
+    Solution(){
+        ios_base::sync_with_stdio(0);
+    }
     using ll=long long;
     long long maxPoints(vector<vector<int>>& points) {
         ll ans=0;
