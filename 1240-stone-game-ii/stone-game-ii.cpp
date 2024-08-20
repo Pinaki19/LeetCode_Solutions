@@ -24,7 +24,7 @@ public:
     int stoneGameII(vector<int>& piles) {
         int n=piles.size();
         vector<int> prefsum(n);
-        vector<vector<vector<array<int,2>>>> dp(2,vector<vector<array<int,2>>> (n,vector<array<int,2>>(2*n,{-1,-1})));
+        vector<vector<vector<array<int,2>>>> dp(2,vector<vector<array<int,2>>> (n,vector<array<int,2>>(n+1,{-1,-1})));
         prefsum[0]=piles[0];
         for(int i=1;i<n;i++)
             prefsum[i]=prefsum[i-1]+piles[i];
