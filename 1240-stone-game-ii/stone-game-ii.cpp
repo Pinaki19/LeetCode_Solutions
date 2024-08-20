@@ -1,5 +1,8 @@
 class Solution {
 public:
+    Solution(){
+        ios_base::sync_with_stdio(0);
+    }
     array<int,2> solve(bool alice,int i,int m,auto& psum,auto& dp){
         if(i>=psum.size())return {0,0};
         if(dp[alice][i][m][0]!=-1) return dp[alice][i][m];
