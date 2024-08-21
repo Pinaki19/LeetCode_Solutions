@@ -17,14 +17,6 @@ public:
     }
     int strangePrinter(string s) {
         memset(dp,-1,sizeof(dp));
-        string temp=s;
-        // int i=0;
-        // while(i<s.size()){
-        //     char c=s[i];
-        //     while(i<s.size() && s[i]==c)
-        //         i++;
-        //     temp+=c;
-        // }
-        return solve(temp,0,temp.size()-1);
+        return solve(s,0,s.size()-1);
     }
 };
