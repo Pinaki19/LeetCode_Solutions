@@ -5,9 +5,7 @@ public:
         if(l>r) return 0;
         if(l==r) return dp[l][r]=1;
         if(dp[l][r]!=-1) return dp[l][r];
-        if(s[l]==s[r])
-            return dp[l][r]=solve(s,l+1,r);
- 
+        
         int ans=1+solve(s,l+1,r);
         for(int j=l+1;j<=r;j++){
             if(s[j]==s[l])
