@@ -11,14 +11,7 @@ public:
                 rest+='0';
             vs.push_back(rest+is);
         }
-        map<int,vector<int>> mp;
-        for(int i=0;i<n;i++){
-            mp[i]=vector<int>(10,0);
-            for(char c:vs[i]){
-                int t=c-'0';
-                mp[i][t]++;
-            }
-        }
+       
 
         for(int i=0;i<n;i++){
             for(int j=i+1;j<n;j++){
