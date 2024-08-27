@@ -21,9 +21,7 @@ public:
         pq.push(src);
         while(pq.size()){
             int v=pq.top();pq.pop();
-            for(auto it:adj[v]){
-                int t=it.first;
-                double prob=it.second;
+            for(auto [t,prob]:adj[v]){
                 double st=succ[t];
                 double sv=succ[v];
                 if(st<sv*prob){
