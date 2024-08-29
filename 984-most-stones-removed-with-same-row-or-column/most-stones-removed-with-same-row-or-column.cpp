@@ -1,6 +1,7 @@
 class Solution {
 public:
     int removeStones(vector<vector<int>>& stones) {
+        ios_base::sync_with_stdio(0);
         int ans=0;
         int n=stones.size();
         const int lim=1e3+1;
