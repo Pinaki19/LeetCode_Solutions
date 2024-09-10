@@ -10,6 +10,14 @@
  */
 class Solution {
 public:
+    int gcd(int a,int b){
+        while(b){
+            int t=a%b;
+            a=b;
+            b=t;
+        }
+        return a;
+    }
     ListNode* insertGreatestCommonDivisors(ListNode* head) {
         ListNode* temp=head;
         int g;
