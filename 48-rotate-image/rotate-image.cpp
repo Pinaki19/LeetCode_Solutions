@@ -10,8 +10,11 @@ public:
         }
 
         for(int i=0;i<n;i++){
-            for(int j=0;j<n/2;j++){
-                swap(matrix[i][j],matrix[i][n-j-1]);
+            int l=0,r=n-1;
+            while(l<r){
+                swap(matrix[i][l],matrix[i][r]);
+                l++;
+                r--;
             }
         }
     }
