@@ -21,7 +21,7 @@ public:
             wordList.push_back(beginWord);
         }
 
-        map<string,int> mp;
+        unordered_map<string,int> mp;
         for(int i=0;i<wordList.size();i++)
             mp[wordList[i]]=i;
 
