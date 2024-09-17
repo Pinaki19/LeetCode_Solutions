@@ -25,7 +25,6 @@ public:
         int l=0,r=pivot;
         if(target<nums[l])
             l=pivot+1,r=nums.size()-1;
-        cout<<pivot<<endl;
         
         while(l<=r){
             int mid=l+(r-l)/2;
