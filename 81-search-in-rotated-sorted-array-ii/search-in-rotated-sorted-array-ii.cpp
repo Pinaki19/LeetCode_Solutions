@@ -6,9 +6,6 @@ public:
         while(l<r){
             if(nums[l]<nums[r])
                 return r;
-            if(r-l+1==2){
-                return nums[l]>nums[r]? l:r;
-            }
             int mid=l+(r-l)/2;
             if(nums[mid]>nums[l])
                 l=mid;
