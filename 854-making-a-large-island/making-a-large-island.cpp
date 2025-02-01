@@ -1,3 +1,6 @@
+#pragma GCC optimize("O3,unroll-loops")
+#pragma GCC target("avx2,abm,bmi2")
+
 class Solution {
 public:
     int largestIsland(vector<vector<int>>& grid) {
