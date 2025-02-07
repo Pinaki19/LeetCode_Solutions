@@ -1,21 +1,19 @@
 class Solution {
 public:
     vector<int> queryResults(int limit, vector<vector<int>>& queries) {
-        unordered_set<int> cols;
-        unordered_map<int,int> mp1,mp2;
         vector<int> ans;
-        for(auto q:queries){
-            int b=q[0],c=q[1];
-            if(mp2.find(b)!=mp2.end()){
-                int col=mp2[b];
-                mp1[col]--;
-                if(mp1[col]==0)
-                    cols.erase(col);
+        unordered_map<int,int> mp,col;
+        for(auto& q:queries){
+            int num=q[0],color=q[1];
+            if(col.find(num)!=col.end()){
+                int prev=col[num];
+                mp[prev]-=1;
+                if(mp[prev]==0)
+                    mp.erase(prev);
             }
-            cols.insert(c);
-            mp2[b]=c;
-            mp1[c]++;
-            ans.push_back(cols.size());
+            col[num]=color;
+            mp[color]+=1;
+            ans.push_back(mp.size());
         }
         return ans;
     }
