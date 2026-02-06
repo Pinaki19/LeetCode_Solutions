@@ -16,7 +16,7 @@ class Solution:
         nums.sort()
         global k
         k=K
-        print(nums)
+        #print(nums)
         minDel=len(nums)-1
         for i in range(0,len(nums)//2):
             minDel=min(minDel,i+getMinDel(nums,i,len(nums),nums[i],True))
