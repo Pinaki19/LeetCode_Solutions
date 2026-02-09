@@ -9,7 +9,7 @@ class Solution:
     def balanceBST(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         self.allValues.clear()
         self.inOrder(root)
-        self.allValues.sort()
+        #self.allValues.sort()
         n=len(self.allValues)
         return self.createBST(0,n-1)
     
